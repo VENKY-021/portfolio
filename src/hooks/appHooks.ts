@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
+
 
 export function useUpdateProjectDetails() {
   const navigate = useNavigate();
@@ -15,3 +17,22 @@ export function useUpdateProjectDetails() {
 
   return { updateProjectDetails };
 }
+
+
+
+function useImageLoader() {
+  useEffect(() => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      if (img.complete) {
+        img.setAttribute('data-loaded', 'true');
+      } else {
+        img.addEventListener('load', () => {
+          img.setAttribute('data-loaded', 'true');
+        });
+      }
+    });
+  }, []);
+}
+
+export default useImageLoader;

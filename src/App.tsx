@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import AppSpinner from "./utils/AppSpinner";
 import { useEffect, useState } from "react";
+import useImageLoader from "./hooks/appHooks";
 
 function App() {
   const selectedProject = localStorage.getItem("selectedProject");
@@ -36,6 +37,7 @@ function App() {
       setLoading(false);
     }, 500);
   }, []);
+  useImageLoader();
 
   return (
     <div className="relative cursor-default text-foreground scroll-smooth">
@@ -45,7 +47,7 @@ function App() {
         selectedProject === "null" ||
         location.pathname === "/") && (
         <div className="relative w-full h-full">
-          <div className="absolute h-[100vh] bg-black/45 inset-0 z-[201]"></div>
+          <div className="absolute h-[100vh] inset-0 z-[201]"></div>
           <div className="absolute h-full w-full min-h-[100vh] z-[200]">
             <img
               src="cover.jpg"

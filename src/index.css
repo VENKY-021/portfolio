@@ -10,6 +10,54 @@
 
 
 
+/* Animation keyframes */
+@keyframes img-loading {
+  0% {
+    filter: brightness(0.8) grayscale(1);
+    opacity: 0.6;
+  }
+  50% {
+    filter: brightness(1) grayscale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    filter: brightness(0.8) grayscale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Default img animation while loading */
+img {
+  animation: img-loading 1.5s infinite ease-in-out;
+  transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+/* When image has loaded, stop the animation */
+img:has([src]:not([src=""])):not([src=""]) {
+  animation: none;
+  filter: none;
+  opacity: 1;
+}
+
+/* Default style for all images */
+img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* When image is fully loaded */
+img {
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
 body {
   font-family: "Roboto Mono", monospace;
 }

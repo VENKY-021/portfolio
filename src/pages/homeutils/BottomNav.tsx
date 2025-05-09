@@ -10,7 +10,7 @@ function BottomNav() {
         break;
       case "LINKEDIN":
         window.open(
-          "https://www.linkedin.com/in/venkatesh-dagcupati-115537237"
+          "https://www.linkedin.com/in/venkatesh-daggupati-115537237/"
         );
         break;
     }
